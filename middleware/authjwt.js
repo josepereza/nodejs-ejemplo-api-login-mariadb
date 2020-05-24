@@ -18,6 +18,9 @@ exports.Authorize = function(req, res, next) {
 
     var token = req.headers.authorization.replace(/['"]+/g, '');
     token = token.replace('Bearer ', '')
+       
+         //esta linea de abajo se puede sustituir por las 2 lineas de arriba.    
+         //let token=req.headers.authorization.split(' ')[1]
 
     console.log('Validando token: ', token);
     jwt.verify(token, '123456',signOptions, function(err, payload) {
